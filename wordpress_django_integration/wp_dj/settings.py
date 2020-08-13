@@ -55,25 +55,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wp_dj.wsgi.application'
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'vfw',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '',
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'vfw',
         'USER': 'Violence123',
-        'PASSWORD': 'Violence@123',
-        'HOST': '35.200.206.132',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '3306',
     }
 }
