@@ -1,0 +1,63 @@
+<html lang="en"><head>
+  <title>NAV Value</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="
+    background: url('https://m.economictimes.com/thumb/height-450,width-800,imgsize-169959,msid-64401685/stock-market-update-these-stocks-featured-among-the-top-gainers-on-thursday.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+">
+
+<div class="container" style="text-align: center;width: 70%;background-color: #f9f9f9;margin: 150px auto;padding: 7px 20px;box-shadow: 0px 0px 4px 0px black;">
+  <h1 style=" text-transform:uppercase;"> Hello, <b style="color:red;">{{ user.username }}</b></h1>
+  <h2>NAV Value</h2>
+    <br>
+  <form class="form-inline" method="POST">
+    <div class="form-group">
+      <label>Enter Value</label>
+      {% csrf_token %}
+      {{ form.as_p}}
+    </div>
+     <button type="submit" class="btn btn-default">Submit</button>
+</form>
+     <br>       
+  <table class="table table-bordered" style="
+    margin: 0 auto;
+">
+    <thead>
+      <tr>
+        <th>Scheme Code</th>
+        <th>ISIN Number</th>
+        <th>Scheme Name</th>
+        <th>NAV value</th>
+        <th>Date</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+    {% if forloop.counter < 6 %}
+    <tr>
+        <td>{{ i.code }}</td>
+        <td>{{ i.isin }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.nav }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.usr }}</td>
+      </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+  {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}">Logout</a>
+  {% endif %}
+</div>
+
+
+
+</body></html>

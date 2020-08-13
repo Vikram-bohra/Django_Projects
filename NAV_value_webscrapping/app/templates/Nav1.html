@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NAV Value</title>
+</head>
+<body>
+<form method="POST" style="font-size:20px;">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="Submit" name="submit"/>
+</form>
+
+<table>
+	<tr><th>Scheme Code</th><th>ISIN Div Payout/ ISIN Growth</th><th>Scheme Name</th><th>Net Asset Value</th><th>Date</th></tr>
+	<tr><td>{{ code }}</td><td>{{ isin }}</td><td>{{ name }}</td><td>{{ nav }}</td><td>{{ date }}</td></tr>
+</table>
+
+
+</body>
+</html>
